@@ -222,7 +222,7 @@ export class UserController extends AdaptableController {
   }
 
   defaultResetPasswordEmail({link, user, appName, }) {
-    const text = "Hi,\n\n" +
+    const text = "Olá,\n\n" +
         "Você solicitou a recuperação de senha no " + appName +
         (user.get('username') ? (" (seu nome de usuário é '" + user.get('username') + "')") : "") + ".\n\n" +
         "" +
