@@ -212,23 +212,23 @@ export class UserController extends AdaptableController {
   }
 
   defaultVerificationEmail({link, user, appName, }) {
-    const text = "Hi,\n\n" +
-        "You are being asked to confirm the e-mail address " + user.get("email") + " with " + appName + "\n\n" +
+    const text = "Olá,\n\n" +
+        "Solicitamos a confirmação do seu e-mail " + user.get("email") + " para uso do " + appName + "\n\n" +
         "" +
-        "Click here to confirm it:\n" + link;
+        "Para confirmar seu email clique neste link:\n" + link;
     const to = user.get("email");
-    const subject = 'Please verify your e-mail for ' + appName;
+    const subject = 'Confirmação de email para ' + appName;
     return { text, to, subject };
   }
 
   defaultResetPasswordEmail({link, user, appName, }) {
     const text = "Hi,\n\n" +
-        "You requested to reset your password for " + appName +
-        (user.get('username') ? (" (your username is '" + user.get('username') + "')") : "") + ".\n\n" +
+        "Você solicitou a recuperação de senha no " + appName +
+        (user.get('username') ? (" (seu nome de usuário é '" + user.get('username') + "')") : "") + ".\n\n" +
         "" +
-        "Click here to reset it:\n" + link;
+        "Clique aqui para alterar sua senha:\n" + link;
     const to = user.get("email") || user.get('username');
-    const subject =  'Password Reset for ' + appName;
+    const subject =  'Recuperação de senha ' + appName;
     return { text, to, subject };
   }
 }
